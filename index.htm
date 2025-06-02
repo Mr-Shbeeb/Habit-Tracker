@@ -12,8 +12,12 @@
             --secondary: #2ecc71;
             --danger: #e74c3c;
             --warning: #f39c12;
-            --dark: #2c3e50;
-            --light: #ecf0f1;
+            --dark: #121212;
+            --darker: #0a0a0a;
+            --light: #1e1e1e;
+            --lighter: #2a2a2a;
+            --text: #e0e0e0;
+            --text-light: #b0b0b0;
             --sky-blue: #87CEEB;
             --white: #ffffff;
         }
@@ -24,28 +28,28 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
         body {
-            background-color: var(--light);
-            color: var(--dark);
+            background-color: var(--darker);
+            color: var(--text);
             line-height: 1.6;
         }
         .app-container {
             max-width: 500px;
             margin: 0 auto;
             padding: 20px;
-            background-color: var(--white);
+            background-color: var(--dark);
             border-radius: 15px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
             min-height: 100vh;
         }
         .app-header {
-            background: linear-gradient(135deg, var(--primary), var(--sky-blue));
+            background: linear-gradient(135deg, var(--primary), #1a3a5a);
             color: white;
             padding: 20px;
             text-align: center;
             border-radius: 10px;
             margin-bottom: 20px;
             position: relative;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.3);
         }
         .app-header h1 {
             font-size: 1.8rem;
@@ -56,7 +60,7 @@
             left: 20px;
             top: 50%;
             transform: translateY(-50%);
-            background: rgba(255,255,255,0.2);
+            background: rgba(255,255,255,0.1);
             border: none;
             color: white;
             width: 40px;
@@ -66,16 +70,17 @@
             transition: all 0.3s;
         }
         .stats-btn:hover {
-            background: rgba(255,255,255,0.3);
+            background: rgba(255,255,255,0.2);
             transform: translateY(-50%) scale(1.1);
         }
         .progress-card {
-            background: var(--white);
+            background: var(--light);
             border-radius: 10px;
             padding: 20px;
             margin-bottom: 20px;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+            box-shadow: 0 3px 10px rgba(0,0,0,0.2);
             text-align: center;
+            border: 1px solid var(--lighter);
         }
         .progress-card h2 {
             color: var(--primary);
@@ -91,10 +96,11 @@
             font-weight: bold;
             color: var(--primary);
             margin: 10px 0;
+            text-shadow: 0 0 10px rgba(52, 152, 219, 0.5);
         }
         .progress-bar {
             height: 10px;
-            background-color: var(--light);
+            background-color: var(--lighter);
             border-radius: 5px;
             overflow: hidden;
             margin-top: 15px;
@@ -104,6 +110,7 @@
             background: linear-gradient(90deg, var(--primary), var(--sky-blue));
             width: 0%;
             transition: width 0.5s ease;
+            box-shadow: 0 0 10px rgba(52, 152, 219, 0.5);
         }
         .stats-grid {
             display: grid;
@@ -112,21 +119,22 @@
             margin-bottom: 20px;
         }
         .stat-card {
-            background: var(--white);
+            background: var(--light);
             border-radius: 10px;
             padding: 15px;
             text-align: center;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+            box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+            border: 1px solid var(--lighter);
         }
         .stat-value {
             font-size: 2.5rem;
             font-weight: bold;
             color: var(--primary);
+            text-shadow: 0 0 8px rgba(52, 152, 219, 0.3);
         }
         .stat-label {
-            color: var(--dark);
+            color: var(--text-light);
             font-size: 0.9rem;
-            opacity: 0.8;
         }
         .action-buttons {
             display: flex;
@@ -146,18 +154,19 @@
             justify-content: center;
             gap: 10px;
             font-weight: 600;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.2);
         }
         .btn-success {
-            background: linear-gradient(135deg, var(--secondary), #27ae60);
+            background: linear-gradient(135deg, var(--secondary), #1e8449);
             color: white;
         }
         .btn-danger {
-            background: linear-gradient(135deg, var(--danger), #c0392b);
+            background: linear-gradient(135deg, var(--danger), #922b21);
             color: white;
         }
         .btn:hover {
             transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.3);
         }
         .btn:active {
             transform: translateY(0);
@@ -166,6 +175,7 @@
             opacity: 0.7;
             transform: none !important;
             cursor: not-allowed;
+            box-shadow: none;
         }
         /* Statistics Modal */
         .stats-modal {
@@ -175,27 +185,29 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background-color: rgba(0,0,0,0.5);
+            background-color: rgba(0,0,0,0.8);
             z-index: 1000;
             overflow-y: auto;
             padding: 10px;
         }
         .modal-content {
-            background-color: var(--white);
+            background-color: var(--dark);
             border-radius: 15px;
             width: 100%;
             max-width: 800px;
             margin: 0 auto;
             overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+            border: 1px solid var(--lighter);
         }
         .modal-header {
-            background: linear-gradient(135deg, var(--primary), var(--sky-blue));
+            background: linear-gradient(135deg, var(--primary), #1a3a5a);
             color: white;
             padding: 15px;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
         }
         .modal-header h2 {
             font-size: 1.3rem;
@@ -210,6 +222,10 @@
             font-size: 1.8rem;
             cursor: pointer;
             line-height: 1;
+            transition: transform 0.2s;
+        }
+        .close-btn:hover {
+            transform: scale(1.2);
         }
         .modal-body {
             padding: 15px;
@@ -219,6 +235,9 @@
             width: 100%;
             margin-bottom: 15px;
             position: relative;
+            background-color: var(--light);
+            border-radius: 8px;
+            border: 1px solid var(--lighter);
         }
         .summary-cards {
             display: grid;
@@ -226,10 +245,11 @@
             gap: 15px;
         }
         .summary-card {
-            background: var(--white);
+            background: var(--light);
             border-radius: 10px;
             padding: 12px;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+            box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+            border: 1px solid var(--lighter);
         }
         .summary-card h3 {
             color: var(--primary);
@@ -242,8 +262,8 @@
         .summary-row {
             display: flex;
             justify-content: space-between;
-            padding: 6px 0;
-            border-bottom: 1px solid var(--light);
+            padding: 8px 0;
+            border-bottom: 1px solid var(--lighter);
             font-size: 0.9rem;
         }
         .summary-row:last-child {
@@ -255,8 +275,8 @@
         .activity-item {
             display: flex;
             justify-content: space-between;
-            padding: 6px 0;
-            border-bottom: 1px solid var(--light);
+            padding: 8px 0;
+            border-bottom: 1px solid var(--lighter);
             font-size: 0.85rem;
         }
         .activity-item:last-child {
@@ -584,7 +604,7 @@
                 try {
                     // إذا لم توجد سجلات، عرض رسالة بدلاً من المخطط
                     if (records.length === 0) {
-                        elements.progressChart.innerHTML = '<p style="text-align:center; padding:20px; color:#7f8c8d;">No data available for chart</p>';
+                        elements.progressChart.innerHTML = '<p style="text-align:center; padding:20px; color:#b0b0b0;">No data available for chart</p>';
                         return;
                     }
                     
@@ -648,32 +668,43 @@
                         title: {
                             text: 'Level Progress Over Time',
                             font: {
-                                size: titleFontSize
+                                size: titleFontSize,
+                                color: '#e0e0e0'
                             }
                         },
+                        plot_bgcolor: 'rgba(0,0,0,0)',
+                        paper_bgcolor: 'rgba(0,0,0,0)',
                         xaxis: {
                             title: {
                                 text: 'Date',
                                 font: {
-                                    size: axisTitleFontSize
+                                    size: axisTitleFontSize,
+                                    color: '#b0b0b0'
                                 }
                             },
                             type: 'date',
                             tickfont: {
-                                size: tickFontSize
-                            }
+                                size: tickFontSize,
+                                color: '#b0b0b0'
+                            },
+                            gridcolor: 'rgba(255,255,255,0.1)',
+                            linecolor: 'rgba(255,255,255,0.2)'
                         },
                         yaxis: {
                             title: {
                                 text: 'Level (%)',
                                 font: {
-                                    size: axisTitleFontSize
+                                    size: axisTitleFontSize,
+                                    color: '#b0b0b0'
                                 }
                             },
                             range: [0, Math.max(100, ...levels) + 10],
                             tickfont: {
-                                size: tickFontSize
-                            }
+                                size: tickFontSize,
+                                color: '#b0b0b0'
+                            },
+                            gridcolor: 'rgba(255,255,255,0.1)',
+                            linecolor: 'rgba(255,255,255,0.2)'
                         },
                         showlegend: false,
                         margin: {
@@ -700,7 +731,14 @@
                         displayModeBar: true,
                         displaylogo: false,
                         modeBarButtonsToRemove: ['toImage', 'sendDataToCloud'],
-                        scrollZoom: true
+                        scrollZoom: true,
+                        modeBarButtonsToAdd: [{
+                            name: 'Toggle Dark Mode',
+                            icon: Plotly.Icons.camera,
+                            click: function(gd) {
+                                // يمكن إضافة وظيفة تبديل الثيم هنا إذا أردت
+                            }
+                        }]
                     });
                     
                 } catch (error) {
